@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant browser
+    participant server
+    
+    Note right of browser: User writes note and clicks save
+    Note right of browser: Browser executes JS event handler
+    
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    Note left of server: Server adds new note to data
+    server-->>browser: Response: {"message":"note created"}
+    deactivate server
+    
+    Note right of browser: Browser updates notes list using DOM manipulatio
